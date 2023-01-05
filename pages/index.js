@@ -52,6 +52,7 @@ const Home = () => {
 						{currentUser?.data ? (
 							<div className="bg-white w-2/3 md:w-1/3 h-56 shadow-indigo-500/40 py-3 rounded-lg flex flex-col justify-center items-center">
 								<Image
+									alt="user picture"
 									className="rounded-full shadow-xl my-2"
 									src={currentUser.data?.avatar}
 									width={70}
@@ -75,8 +76,9 @@ const Home = () => {
 						)}
 
 						<div className="flex my-4 md:my-0">
-							{users?.data?.map(item => (
+							{users?.data?.map((item, index) => (
 								<div
+									key={index}
 									onClick={() => getUserData(item.id)}
 									className="bg-green-500 text-white rounded-lg shadow-indigo-500/40 h-4 w-4 p-5 m-1 md:m-5 flex justify-center items-center cursor-pointer "
 								>
